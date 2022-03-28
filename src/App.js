@@ -2,14 +2,11 @@ import React from 'react'
 import "./App.css"
 import Board from './board';
 import Keyboard from './keyboard';
-
-let currentGuess;
-let correctWord;
-
-// get txt wordList in variable
-
+import {correctWord} from './wordList'
 
 function App() {
+
+  console.log("DEBUG correctWord: " + correctWord)
 
   return (
     <div>

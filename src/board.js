@@ -1,4 +1,6 @@
+import { hasSelectionSupport, wait } from "@testing-library/user-event/dist/utils";
 import React, {useState, useEffect} from "react";
+import {correctWord, wordList} from "./wordList";
 
 function validInput(input) {
     // Checks if input is a valid character
@@ -11,6 +13,9 @@ function validInput(input) {
 }
 
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function Board() {
 
@@ -24,9 +29,25 @@ function Board() {
 
             // when person locks in guess
             if (event.keyCode === 13 && currentGuess.length % 5 === 0 && currentGuess.length !== 0) {
-                console.log("DEBUG: person locked in guess")
-                setPast(oldArray => [...oldArray, currentGuess.join('')]);
-                setCurrent([])
+
+                // checks if the word is an accepted word from the wordList
+                if (wordList.includes(currentGuess.join(''))) {
+
+                    // checks if the person has won
+                    if (currentGuess.join('') === correctWord) {
+                        for (let i = 0; i != 69; i++) {
+                            console.log("YOU WON!!!!!!!!!!")
+                        }
+                    } else {
+                        console.log("DEBUG: person locked in guess")
+                        setPast(oldArray => [...oldArray, currentGuess.join('')]);
+                        setCurrent([])
+                    }
+
+                } else {
+                    setCurrent([])
+                    console.log("DEBUG not accepted word")
+                }
 
                 return
             }

@@ -35,11 +35,24 @@ function Board() {
 
                     // checks if the person has won
                     if (currentGuess.join('') === correctWord) {
-                        for (let i = 0; i != 69; i++) {
+                        for (let i = 0; i !== 69; i++) {
                             console.log("YOU WON!!!!!!!!!!")
                         }
                     } else {
                         console.log("DEBUG: person locked in guess")
+
+                        // do the box background coloring
+                        for (let i = 0; i !== 5;) {
+                            if (currentGuess[i] === correctWord.charAt(i)) {
+                                setBoxColors((event) => {
+                                    let newEvent = event
+                                    newEvent[i] = {backgroundColor: "green"}
+                                    return newEvent
+                                })
+                            }
+                            i++
+                        }
+
                         setPast(oldArray => [...oldArray, currentGuess.join('')]);
                         setCurrent([])
                     }
@@ -196,6 +209,27 @@ function Board() {
             return <h4></h4>
         }
     }
+
+
+    const [boxColors, setBoxColors] = useState([
+        // row 1
+        {
+            backgroundColor: "white"
+        },
+        {
+            backgroundColor: "white"
+        },
+        {
+            backgroundColor: "white"
+        },
+        {
+            backgroundColor: "white"
+        },
+        {
+            backgroundColor: "white"
+        }
+    ])
+
     
     return(
         <div className="board">
@@ -204,19 +238,19 @@ function Board() {
                 {
                     // TODO: Use array.map instead of this mess
                 }
-                <div className="box">
-                    <RenderEitherRow1 whichRender={0} />
+                <div className="box" style={boxColors[0]}>
+                    <RenderEitherRow1 whichRender={0}/>
                 </div>
-                <div className="box">
+                <div className="box" style={boxColors[1]}>
                     <RenderEitherRow1 whichRender={1} />
                 </div>
-                <div className="box">
+                <div className="box" style={boxColors[2]}>
                     <RenderEitherRow1 whichRender={2} />
                 </div>
-                <div className="box">
+                <div className="box" style={boxColors[3]}>
                     <RenderEitherRow1 whichRender={3} />
                 </div>
-                <div className="box">
+                <div className="box" style={boxColors[4]}>
                     <RenderEitherRow1 whichRender={4} />
                 </div>
             </div>

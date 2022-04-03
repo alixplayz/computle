@@ -4,7 +4,8 @@ const wordList =
 [
     "mille",
     "bille",
-    "dille"
+    "dille",
+    "dmill"
 ];
 
 // correct word person needs to guess

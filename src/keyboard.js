@@ -39,7 +39,7 @@ onClick={() => {setColor(i => {return { ...i, q: "green-color"}})}} */}
     return (
         <div>
             <div className='keyboard'>
-                <button className={color.q} onClick={() => {setCurrent(oldArray => [...oldArray, "q"]);}}>q</button>
+                <button className={color.q}>q</button>
                 <button className={color.w}>w</button>
                 <button className={color.e}>e</button>
                 <button className={color.r}>r</button>

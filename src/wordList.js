@@ -137,21 +137,19 @@ const wordList =
     "pixel",
 ];
 
-// jizz
+// calender days between
+const differenceDays = differenceInCalendarDays(
+  new Date(2023, 1, 1, 0, 0),
+  new Date(),
+) - 287;
 
 // correct word person needs to guess
 const correctWord = getCorrectWord();
 
-// calender days between
-const differenceDays = differenceInCalendarDays(
-  new Date().getDate,
-  new Date(2023, 1, 1, 0, 0),
-) - 255;
-
 // function to randomize the word
 function getCorrectWord() {
   console.log(differenceDays)
-  return wordList[4]
+  return wordList[differenceDays]
 }
 
 export {

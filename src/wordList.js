@@ -5,15 +5,16 @@ const wordList =
     "mille",
     "bille",
     "dille",
-    "dmill"
+    "dmill",
+    "pisss"
 ];
 
 // correct word person needs to guess
-const correctWord = randomizeWord();
+const correctWord = getCorrectWord();
 
 // function to randomize the word
-function randomizeWord() {
-  return wordList[Math.floor(Math.random() * wordList.length)]
+function getCorrectWord() {
+  return wordList[4]
 }
 
 export {

@@ -12,17 +12,24 @@ function validInput(input) {
     return false
 }
 
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 function Board() {
 
     // guess states
     const [currentGuess, setCurrent] = useState([])
     const [pastGuesses, setPast] = useState([])
+
+    // other states
     const [effectHack, setHack] = useState(0)
+    const [Won, setWon] = useState(() => {
+        return (
+            null
+        )
+    })
+
+    // function to render the "won" screen
+    const WonRender = () => {
+        return Won
+    }
     
     // do the box background coloring
     const boxColorFunc = () =>  {
@@ -184,6 +191,13 @@ function Board() {
                         boxColorFunc()
                         for (let i = 0; i !== 69; i++) {
                             console.log("YOU WON!!!!!!!!!!")
+                            setWon(() => {
+                                return (
+                                    <div style={{position: "absolute"}}>
+                                        <h1>you won lo!L</h1>
+                                    </div>
+                                )
+                            })
                         }
                     } else {
                         console.log("DEBUG: person locked in guess")
@@ -417,6 +431,21 @@ function Board() {
             backgroundColor: "white"
         },
         // row 5
+        {
+            backgroundColor: "white"
+        },
+        {
+            backgroundColor: "white"
+        },
+        {
+            backgroundColor: "white"
+        },
+        {
+            backgroundColor: "white"
+        },
+        {
+            backgroundColor: "white"
+        }
     ])
 
     
@@ -528,6 +557,7 @@ function Board() {
                     <RenderEitherRow6 whichRender={4} />
                 </div>
             </div>
+            <WonRender />
         </div>
     );
 }

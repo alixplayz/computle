@@ -119,3 +119,30 @@
     text-transform: uppercase;
 }
 
+.menu-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.menu-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 32px;
+    font-weight: bold;
+    border: 3px solid;
+    margin-bottom: 25px;
+}

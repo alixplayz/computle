@@ -139,9 +139,9 @@ const wordList =
 
 // calender days between
 const differenceDays = differenceInCalendarDays(
-  new Date(2023, 1, 1, 0, 0),
   new Date(),
-) - 287;
+  new Date(2023, 1, 1, 0, 0),
+) + 283;
 
 // correct word person needs to guess
 const correctWord = getCorrectWord();
